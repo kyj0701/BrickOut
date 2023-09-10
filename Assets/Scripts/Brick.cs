@@ -8,7 +8,9 @@ public class Brick : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ball"))
         {
-            Debug.Log("Collision!");
+            Destroy(this.gameObject);
+
+            // Get Score..
         }
     }
 }
