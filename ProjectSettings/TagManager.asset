@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Music
+  - TopWall
+  - PlayerBar
+  - Wall
   - Ball
+  - Music
   layers:
   - Default
   - TransparentFX
