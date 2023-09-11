@@ -7,7 +7,8 @@ TagManager:
   - TopWall
   - PlayerBar
   - Wall
-  - ball
+  - Ball
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 216756475
+    locked: 0
+  - name: Title
+    uniqueID: 1393313229
     locked: 0
