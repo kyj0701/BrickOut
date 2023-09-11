@@ -21,20 +21,16 @@ public class BallController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Vector3 temp = transform.eulerAngles;
-        if (collision.gameObject.CompareTag("TopWall"))//위 쪽 벽
+        if (collision.gameObject.CompareTag("TopWall")) //위 쪽 벽
         {
             temp.z = 180f - temp.z;
             transform.eulerAngles = temp;
         }
-        else if (collision.gameObject.CompareTag("Wall"))//양 옆 벽
+        else if (collision.gameObject.CompareTag("Wall")) //양 옆 벽
         {
             temp.z = (180f * 2) - temp.z;
             transform.eulerAngles = temp;
         }
 
     }
-
-
-   
-
 }
