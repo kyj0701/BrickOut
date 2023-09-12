@@ -10,7 +10,7 @@ public class MySceneManager : MonoBehaviour
     public CanvasGroup Fade_img;
     public GameObject Loading;
     public Text Loading_text;
-    float fadeDuration = 2f;
+    float fadeDuration = 5f;
 
     public static MySceneManager Instance
     {
