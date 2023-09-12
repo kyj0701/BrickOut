@@ -16,19 +16,19 @@ public class PoolManager : MonoBehaviour
     {
         for (float j = 4; j >= 3; j--)
         {
-            for (float i = -1.12f; i > -2.1f; i -= 0.32f)
+            for (float i = -3.25f; i <= -1.75f; i += 0.5f)
             {
                 GameObject brick = Instantiate(brickPrefab, new Vector3(i, j, 0), Quaternion.identity);
                 brick.transform.SetParent(brickPool.transform);
             }
 
-            for (float i = -0.48f; i < 0.5f; i += 0.32f)
+            for (float i = -0.75f; i <= 0.75f; i += 0.5f)
             {
                 GameObject brick = Instantiate(brickPrefab, new Vector3(i, j, 0), Quaternion.identity);
                 brick.transform.SetParent(brickPool.transform);
             }
 
-            for (float i = 1.12f; i < 2.1f; i += 0.32f)
+            for (float i = 1.75f; i <= 3.25f; i += 0.5f)
             {
                 GameObject brick = Instantiate(brickPrefab, new Vector3(i, j, 0), Quaternion.identity);
                 brick.transform.SetParent(brickPool.transform);
