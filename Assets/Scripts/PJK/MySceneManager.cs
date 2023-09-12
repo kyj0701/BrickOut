@@ -20,7 +20,10 @@ public class MySceneManager : MonoBehaviour
             {
                 return null;
             }
-            return Instance;
+            else
+            {
+                return instance;
+            }
         }
     }
 
@@ -28,12 +31,15 @@ public class MySceneManager : MonoBehaviour
 
     void Start()
     {
-        if(instance != null)
+        if (instance != null)
         {
             DestroyImmediate(this.gameObject);
             return;
         }
-        instance = this;
+        else
+        {
+            instance = this;
+        }
 
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -55,8 +61,6 @@ public class MySceneManager : MonoBehaviour
                 Fade_img.blocksRaycasts = false;
             });
     }
-
-    
 
     public void ChangeScene(string sceneName)
     {
@@ -85,22 +89,22 @@ public class MySceneManager : MonoBehaviour
             yield return null;
 
             past_time += Time.deltaTime;
-            if(percentage >= 90) {
-                percentage = Mathf.Lerp(percentage, 100, past_time);
-                if(percentage == 100)
+            if(percentage >= 90f) {
+                percentage = Mathf.Lerp(percentage, 100f, past_time);
+                if(percentage == 100f)
                 {
                     async.allowSceneActivation = true;
                 }
             }
-            else
+            else if(percentage < 90f)
             {
-                percentage = Mathf.Lerp(percentage, async.progress * 100f, past_time);
-                if(percentage >= 90)
+                percentage = Mathf.Lerp(percentage, async.progress*100f, past_time);
+                if (percentage >= 90f)
                 {
-                    past_time = 0;
+                    past_time = 0f;
                 }
             }
-            Loading_text.text = percentage.ToString("0" + "%");
+            Loading_text.text = percentage.ToString("0") + "%";
         }
     }
 }
