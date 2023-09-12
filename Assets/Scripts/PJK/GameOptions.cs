@@ -25,13 +25,17 @@ public class GameOptions : MonoBehaviour
 
     public void ToStage()
     {
-        SceneManager.LoadScene("StageScene");
+        MySceneManager.Instance.ChangeScene("StageScene");
+
+        //SceneManager.LoadScene("StageScene");
         closeMenu();
     }
 
     public void ToMain()
     {
-        SceneManager.LoadScene("StartScene");
+        MySceneManager.Instance.ChangeScene("StartScene");
+
+        //SceneManager.LoadScene("StartScene");
         closeMenu();
     }
 }

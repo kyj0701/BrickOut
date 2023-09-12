@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: af0a78584082c5043970c81b4676e072
+  - enabled: 1
+    path: Assets/Scenes/BallScene.unity
+    guid: ab5e64b75d4698541bfebe0e18f5fe25
   m_configObjects: {}
