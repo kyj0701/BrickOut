@@ -10,7 +10,7 @@ public class MySceneManager : MonoBehaviour
     public CanvasGroup Fade_img;
     public GameObject Loading;
     public Text Loading_text;
-    float fadeDuration = 5f;
+    float fadeDuration = 2f;
 
     public static MySceneManager Instance
     {
@@ -98,8 +98,8 @@ public class MySceneManager : MonoBehaviour
             }
             else
             {
-                percentage = Mathf.Lerp(percentage, async.progress * 100f, past_time);
-                if(percentage >= 90)
+                percentage = Mathf.Lerp(percentage, async.progress*1f, past_time);
+                if(percentage >= 99)
                 {
                     past_time = 0;
                 }
