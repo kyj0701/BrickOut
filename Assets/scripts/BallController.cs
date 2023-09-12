@@ -7,10 +7,6 @@ public class BallController : MonoBehaviour
     public float ballSpeed = 4f;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -18,6 +14,8 @@ public class BallController : MonoBehaviour
         float Speed = Time.deltaTime * ballSpeed;
         transform.Translate(new Vector3(0, Speed, 0f));
     }
+
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -9,7 +9,7 @@ public class Brick : MonoBehaviour
         if (collision.collider.CompareTag("Ball"))
         {
             Destroy(this.gameObject);
-
+            GameManager.Instance.BrickTouch();
             // Get Score..
         }
     }
