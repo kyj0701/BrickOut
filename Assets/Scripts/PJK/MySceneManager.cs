@@ -20,7 +20,10 @@ public class MySceneManager : MonoBehaviour
             {
                 return null;
             }
-            return Instance;
+            else
+            {
+                return instance;
+            }
         }
     }
 
@@ -28,12 +31,15 @@ public class MySceneManager : MonoBehaviour
 
     void Start()
     {
-        if(instance != null)
+        if (instance != null)
         {
             DestroyImmediate(this.gameObject);
             return;
         }
-        instance = this;
+        else
+        {
+            instance = this;
+        }
 
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -55,8 +61,6 @@ public class MySceneManager : MonoBehaviour
                 Fade_img.blocksRaycasts = false;
             });
     }
-
-    
 
     public void ChangeScene(string sceneName)
     {
