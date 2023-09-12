@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float ballSpeed = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +21,27 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 temp = transform.eulerAngles;
-        if (collision.gameObject.CompareTag("TopWall")) //위 쪽 벽
+        Vector3 tmp = transform.eulerAngles;
+        if (collision.gameObject.CompareTag("TopWall")) //위 쪽 벽,블록
         {
-            temp.z = 180f - temp.z;
-            transform.eulerAngles = temp;
+            tmp.z = 180f - tmp.z;
+            transform.eulerAngles = tmp;
         }
         else if (collision.gameObject.CompareTag("Wall")) //양 옆 벽
         {
-            temp.z = (180f * 2) - temp.z;
-            transform.eulerAngles = temp;
+            tmp.z = (180f * 2) - tmp.z;
+            transform.eulerAngles = tmp;
+        }
+        else if (collision.gameObject.CompareTag("BottomWall")) //바닥
+        {
+
+            DestroyBall();
         }
 
+    }
+
+    void DestroyBall()
+    {
+        Destroy(gameObject);
     }
 }
