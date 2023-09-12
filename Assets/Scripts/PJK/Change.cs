@@ -22,7 +22,7 @@ public class Change : MonoBehaviour
     {
         //Invoke("changing",0.5f);
         MySceneManager.Instance.ChangeScene(SceneName);
-        Invoke("changing", 5f);
+        //Invoke("changing", 5f);
     }
 
     public void newGame()
