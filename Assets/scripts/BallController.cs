@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float ballSpeed = 4f;
+    public AudioSource ballSource;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayMusic();
         Vector3 tmp = transform.eulerAngles;
         if (collision.gameObject.CompareTag("TopWall")) //위 쪽 벽,블록
         {
@@ -43,5 +45,10 @@ public class BallController : MonoBehaviour
     void DestroyBall()
     {
         Destroy(gameObject);
+    }
+
+    public void PlayMusic()
+    {        
+        ballSource.Play();
     }
 }
