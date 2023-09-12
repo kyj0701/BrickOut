@@ -96,10 +96,10 @@ public class MySceneManager : MonoBehaviour
                     async.allowSceneActivation = true;
                 }
             }
-            else
+            else if(percentage < 90)
             {
                 percentage = Mathf.Lerp(percentage, async.progress*1f, past_time);
-                if(percentage >= 99)
+                if(percentage >= 90)
                 {
                     past_time = 0;
                 }
