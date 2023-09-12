@@ -5,25 +5,39 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Dictionary<string, Sprite> SpriteLoad = new Dictionary<string, Sprite>();
-
+    [SerializeField]
+    public Dictionary<string, Sprite> SpriteDic = new Dictionary<string, Sprite>();
+    public Sprite sp;
+    public GameObject g;
+    public Transform t;
     public override void Awake()
     {
         base.Awake();
-        SpriteLoadInit();
+      
+    }
+    public void Start()
+    {
+        SpriteInit();
     }
 
-    public void SpriteLoadInit()
+    public void SpriteLoad(GameObject obj , string name)
     {
-        DirectoryInfo di = new DirectoryInfo("Assets/Resources/Images");
+        obj.GetComponent<SpriteRenderer>().sprite = SpriteDic[name];
+
+    }
+
+    public void SpriteInit()
+    {
+        string path = "Assets/Resources/Sprites";
+        DirectoryInfo di = new DirectoryInfo(path);
         foreach (FileInfo file in di.GetFiles())
         {
             if (!file.Name.Contains(".meta"))
             {
                 string[] fileName = file.Name.Split('.');
-    /*            Sprite sprite = new Sprite(file.);
-                SpriteLoad.Add(fileName[0], file.);*/
-                Debug.Log("파일명 : " + file.Name);
+                Sprite s = Resources.Load<Sprite>("Sprites/" + fileName[0]);
+                SpriteDic.Add(fileName[0], s);
+                //Debug.Log("파일명 : " + fileName[0]);
 
             }
            
