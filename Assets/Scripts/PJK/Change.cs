@@ -20,8 +20,9 @@ public class Change : MonoBehaviour
 
     public void SceneChange()
     {
-        Invoke("changing",0.5f);
-        //MySceneManager.Instance.ChangeScene(SceneName);
+        //Invoke("changing",0.5f);
+        MySceneManager.Instance.ChangeScene(SceneName);
+        //Invoke("changing", 5f);
     }
 
     public void newGame()
