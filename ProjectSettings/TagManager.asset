@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Ball
   - Music
+  - BottomWall
   layers:
   - Default
   - TransparentFX
