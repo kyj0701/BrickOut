@@ -7,9 +7,11 @@ public class bar : MonoBehaviour
 
     Rigidbody rid;
     public float moveSpeed = 5.0f;
-    public float minX = -8.35f;
-    public float maxX = 8.35f;
-    private float[] angles = { -60, -45, 0, 45, 60 };
+    public float minX = -3.197f;
+    public float maxX = 3.197f;
+    private float[] angles = { -60, -45, -30, -15, 0, 15, 30, 45, 60 };
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +34,17 @@ public class bar : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 bar = collision.transform.eulerAngles;
-        if (collision.gameObject.tag == "ball")
+        Vector3 tmp = collision.transform.eulerAngles;
+        if (collision.gameObject.tag == "Ball")
         {
             int randomAngle = Random.Range(0, angles.Length);
-            bar.z = angles[randomAngle];
-            collision.transform.eulerAngles = bar;
-        }
-    }
+            tmp.z = angles[randomAngle];
+            collision.transform.eulerAngles = tmp;
 
+
+        }
+
+    }
 }
+
+
