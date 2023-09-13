@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float ballSpeed = 4f;
+    private bool isFrozen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +16,11 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float Speed = Time.deltaTime * ballSpeed;
-        transform.Translate(new Vector3(0, Speed, 0f));
+        if (!isFrozen)
+        {
+            float Speed = Time.deltaTime * ballSpeed;
+            transform.Translate(new Vector3(0, Speed, 0f));
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -33,15 +37,16 @@ public class BallController : MonoBehaviour
             transform.eulerAngles = tmp;
         }
         else if (collision.gameObject.CompareTag("BottomWall")) //¹Ù´Ú
-        {
+        {          
+            isFrozen = true;
+            Invoke("DestroyBall", 1f);
 
-            DestroyBall();
         }
-
     }
 
     void DestroyBall()
     {
         Destroy(gameObject);
     }
+
 }

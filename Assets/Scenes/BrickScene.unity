@@ -2297,8 +2297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  minX: -3.197
-  maxX: 3.197
+  minX: -3.76
+  maxX: 3.76
 --- !u!4 &2091155545
 Transform:
   m_ObjectHideFlags: 0

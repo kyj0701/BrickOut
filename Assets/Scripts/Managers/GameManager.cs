@@ -24,9 +24,7 @@ public class GameManager : Singleton<GameManager>
     /*            Sprite sprite = new Sprite(file.);
                 SpriteLoad.Add(fileName[0], file.);*/
                 Debug.Log("ÆÄÀÏ¸í : " + file.Name);
-
-            }
-           
+            }          
         }
     }
 }
