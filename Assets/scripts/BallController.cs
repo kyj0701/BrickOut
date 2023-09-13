@@ -43,6 +43,7 @@ public class BallController : MonoBehaviour
     void DestroyBall()
     {
         Destroy(gameObject);
+        GameManager.Instance.GameOver();
     }
 
     public void PlayMusic()

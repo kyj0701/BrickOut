@@ -10,7 +10,7 @@ public class Brick : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameManager.Instance.BrickTouch();
-            // Get Score..
+            UIManager.Instance.ViewLeft();
         }
     }
 }

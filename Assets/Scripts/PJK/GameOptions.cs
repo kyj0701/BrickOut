@@ -10,25 +10,48 @@ public class GameOptions : MonoBehaviour
     public GameObject optionBtn;
     public GameObject optionMenu;
 
-
-    public void closeMenu()
+    public void CloseMenu()
     {
         optionMenu.SetActive(false);
         optionBtn.SetActive(true);
     }
 
-    public void openMenu()
+    public void CloseOption()
     {
-        optionMenu.SetActive(true);
-        optionBtn.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
-    public void ToStage()
+    public void OpenMenu()
     {
-        MySceneManager.Instance.ChangeScene("StageScene");
+        Time.timeScale = 0;
+
+        if (SoundManager.Instance.volumeMixer == null)
+        {
+            SoundManager.Instance.volumeMixer = GameObject.FindGameObjectWithTag("BGMixer");
+            SoundManager.Instance.volumeMixer.GetComponent<Slider>().value = SoundManager.Instance.AudioSource.volume;
+            SoundManager.Instance.volumeMixer.GetComponent<Slider>().onValueChanged.AddListener(SoundManager.Instance.SetVolume);
+        }
+    }
+
+    public void Retry()
+    {
+        MySceneManager.Instance.ChangeScene("Stage" + GameManager.Instance.StageLevel);
+
+        Time.timeScale = 1.0f;
+    }
+
+    public void ToStage(int stageLevel)
+    {
+        MySceneManager.Instance.ChangeScene("Stage" + stageLevel);
 
         //SceneManager.LoadScene("StageScene");
-        closeMenu();
+    }
+
+    public void ToStageSelect()
+    {
+        MySceneManager.Instance.ChangeScene("Stage0");
+
+        //SceneManager.LoadScene("StageScene");
     }
 
     public void ToMain()
@@ -36,6 +59,5 @@ public class GameOptions : MonoBehaviour
         MySceneManager.Instance.ChangeScene("StartScene");
 
         //SceneManager.LoadScene("StartScene");
-        closeMenu();
     }
 }

@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
+
+
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]
@@ -39,31 +43,45 @@ public class GameManager : Singleton<GameManager>
     private int brickLeft;
     public int BrickLeft
     {
-        get 
+        get
         {
             //Debug.Log("C : " + brickCreate + "/ D : " + BrickDestroy);
-            return brickCreate - BrickDestroy;
+            return brickCreate - brickDestroy;
         }
 
-        set { ViewLeft(); brickLeft = value; }
+        set { brickLeft = value; }
     }
 
     //활동중인 공 갯수 (0이 되면 게임 오버)
     private int ballCount;
     public int BallCount
     {
-        get 
-        { 
-            return ballCount; 
+        get
+        {
+            return ballCount;
         }
 
         set
         {
             if (ballCount < 1)
             {
-                GameOver();
+                GameClear();
             }
             ballCount = value;
+        }
+    }
+
+    private int stageLevel;
+    public int StageLevel
+    {
+        get
+        {
+            return stageLevel;
+        }
+
+        set
+        {
+            stageLevel = value;
         }
     }
     #endregion
@@ -72,30 +90,62 @@ public class GameManager : Singleton<GameManager>
     //======================================================================//
     //벽돌이 삭제될때 사용되는 함수
 
-    public void ViewLeft()
-    {
-        leftText.text = "" + BrickLeft;
-    }
+    //public void ViewLeft()
+    //{
+    //    leftText.text = "" + BrickLeft;
+    //}
     
     public void BrickTouch()
     {
-        BrickDestroy++;
-        Debug.Log("Touch");
+        brickDestroy++;
+    }
+
+    public void GameClear()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.optionBtn.SetActive(false);
+        UIManager.Instance.gameOverWindow.SetActive(true);
+        UIManager.Instance.gameOverText.text = "STAGE CLEAR";
+        UIManager.Instance.gameOverText.color = Color.green;
     }
 
     public void GameOver()
     {
         //GameOver
         Time.timeScale = 0;
+        UIManager.Instance.optionBtn.SetActive(false);
+        UIManager.Instance.gameOverWindow.SetActive(true);
+        UIManager.Instance.gameOverText.text = "GAME OVER";
+        UIManager.Instance.gameOverText.color = Color.red;
     }
 
     public override void Awake()
     {
         base.Awake();
     }
-    public void Start()
+
+    // 새로운 씬을 추가
+    void OnEnable()
     {
-        SpriteInit();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // 새로운 씬에 아래 내용을 새로 호출
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (Time.timeScale != 1.0f) Time.timeScale = 1.0f;
+
+        if (stageLevel != 0)
+        {
+            StageInit();
+            UIManager.Instance.ViewLeft();
+        }
+    }
+
+    // 게임 종료 시
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void SpriteLoad(GameObject obj , string name)
@@ -118,7 +168,29 @@ public class GameManager : Singleton<GameManager>
                 //Debug.Log("파일명 : " + fileName[0]);
 
             }
-           
+        }
+    }
+
+    private void StageInit()
+    {
+        brickDestroy = 0;
+
+        switch (stageLevel)
+        {
+            case 1:
+                brickCreate = 45;
+                break;
+            case 2:
+                brickCreate = 98;
+                break;
+            case 3:
+                brickCreate = 87;
+                break;
+            case 4:
+                brickCreate = 74;
+                break;
+            default:
+                return;
         }
     }
 }

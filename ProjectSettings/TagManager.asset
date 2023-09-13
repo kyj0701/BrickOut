@@ -10,6 +10,7 @@ TagManager:
   - Ball
   - Music
   - BottomWall
+  - BGMixer
   layers:
   - Default
   - TransparentFX

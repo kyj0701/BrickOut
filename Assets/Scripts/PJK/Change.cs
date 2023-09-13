@@ -18,10 +18,11 @@ public class Change : MonoBehaviour
         
     }
 
-    public void SceneChange()
+    public void SceneChange(int stageLevel)
     {
         //Invoke("changing",0.5f);
-        MySceneManager.Instance.ChangeScene(SceneName);
+        GameManager.Instance.StageLevel = stageLevel;
+        MySceneManager.Instance.ChangeScene("Stage" + stageLevel);
         //Invoke("changing", 5f);
     }
 

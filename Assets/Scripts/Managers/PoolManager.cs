@@ -37,6 +37,6 @@ public class PoolManager : MonoBehaviour
                 brick.transform.SetParent(brickPool.transform);
             }
         }
-        GameManager.Instance.ViewLeft();
+        //GameManager.Instance.ViewLeft();
     }
 }
