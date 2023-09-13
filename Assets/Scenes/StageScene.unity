@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b8a72b41e28f40b07779dadbd4e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: BrickScene
+  SceneName: Stage3
   option: {fileID: 0}
   button: {fileID: 0}
 --- !u!82 &338809908
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b8a72b41e28f40b07779dadbd4e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: BrickScene
+  SceneName: Stage4
   option: {fileID: 0}
   button: {fileID: 0}
 --- !u!82 &1373152243
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b8a72b41e28f40b07779dadbd4e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: BrickScene
+  SceneName: Stage2
   option: {fileID: 0}
   button: {fileID: 0}
 --- !u!82 &1452000906
@@ -2434,7 +2434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81b8a72b41e28f40b07779dadbd4e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: BrickScene
+  SceneName: Stage1
   option: {fileID: 0}
   button: {fileID: 0}
 --- !u!82 &1835246658
