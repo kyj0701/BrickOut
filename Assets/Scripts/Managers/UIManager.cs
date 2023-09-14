@@ -34,6 +34,6 @@ public class UIManager : MonoBehaviour
 
     public void ViewLeft()
     {
-        brickLeftText.text = GameManager.Instance.BrickLeft.ToString();
+        if (brickLeftText != null) brickLeftText.text = GameManager.Instance.Brick.ToString();
     }
 }

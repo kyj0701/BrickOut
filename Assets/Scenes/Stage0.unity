@@ -2594,9 +2594,9 @@ GameObject:
   - component: {fileID: 1420482791}
   - component: {fileID: 1420482796}
   - component: {fileID: 1420482795}
-  - component: {fileID: 1420482794}
   - component: {fileID: 1420482793}
   - component: {fileID: 1420482792}
+  - component: {fileID: 1420482794}
   m_Layer: 5
   m_Name: ToMain
   m_TagString: Untagged
@@ -4488,6 +4488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionBtn: {fileID: 1335393862}
   optionMenu: {fileID: 666917357}
+  ball: {fileID: 0}
 --- !u!4 &2017192596
 Transform:
   m_ObjectHideFlags: 0
