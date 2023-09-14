@@ -12,6 +12,6 @@ Brick Out Game made by Unity</br>
   * 화면 전환 효과 추가</br>
 </br>
 각 팀원 간의 역할 분담 및 자세한 내용은 노션 참고</br>
-[팀 스파르타 노션](https://teamsparta.notion.site/06-4a657f828ec644a296d836c69f939a43).</br>
+[팀 핫식스 노션](https://teamsparta.notion.site/06-4a657f828ec644a296d836c69f939a43).</br>
 
 
