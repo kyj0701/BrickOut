@@ -10,6 +10,8 @@ public class GameOptions : MonoBehaviour
     public GameObject optionBtn;
     public GameObject optionMenu;
 
+    public GameObject ball;
+
     public void CloseMenu()
     {
         optionMenu.SetActive(false);
@@ -35,13 +37,19 @@ public class GameOptions : MonoBehaviour
 
     public void Retry()
     {
-        MySceneManager.Instance.ChangeScene("Stage" + GameManager.Instance.StageLevel);
-
         Time.timeScale = 1.0f;
+
+        if (ball != null) ball.SetActive(false);
+        MySceneManager.Instance.ChangeScene("Stage" + GameManager.Instance.StageLevel);
     }
 
     public void ToStage(int stageLevel)
     {
+        Time.timeScale = 1.0f;
+
+        if (ball != null) ball.SetActive(false);
+        GameManager.Instance.StageLevel = stageLevel;
+
         MySceneManager.Instance.ChangeScene("Stage" + stageLevel);
 
         //SceneManager.LoadScene("StageScene");
@@ -49,6 +57,11 @@ public class GameOptions : MonoBehaviour
 
     public void ToStageSelect()
     {
+        Time.timeScale = 1.0f;
+
+        if (ball != null) ball.SetActive(false);
+        GameManager.Instance.StageLevel = 0;
+
         MySceneManager.Instance.ChangeScene("Stage0");
 
         //SceneManager.LoadScene("StageScene");
@@ -56,6 +69,11 @@ public class GameOptions : MonoBehaviour
 
     public void ToMain()
     {
+        Time.timeScale = 1.0f;
+
+        if (ball != null) ball.SetActive(false);
+        GameManager.Instance.StageLevel = -1;
+
         MySceneManager.Instance.ChangeScene("StartScene");
 
         //SceneManager.LoadScene("StartScene");

@@ -5098,6 +5098,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1787150029}
         m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
+        m_MethodName: CloseOption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1787150029}
+        m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
         m_MethodName: ToStageSelect
         m_Mode: 1
         m_Arguments:
@@ -8182,6 +8194,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1787150029}
+        m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
+        m_MethodName: CloseOption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1317604909}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -8198,18 +8222,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1787150029}
-        m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
-        m_MethodName: CloseOption
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9612,6 +9624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionBtn: {fileID: 1338528841}
   optionMenu: {fileID: 1317604909}
+  ball: {fileID: 1206060322}
 --- !u!4 &1801474762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8750119733121610200, guid: 224152586d76ca64796eaa6a4c57e6a4, type: 3}
@@ -10650,6 +10663,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1787150029}
+        m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
+        m_MethodName: CloseOption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1787150029}
         m_TargetAssemblyTypeName: GameOptions, Assembly-CSharp
         m_MethodName: ToMain

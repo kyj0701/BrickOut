@@ -19,40 +19,59 @@ public class GameManager : Singleton<GameManager>
     //▽ 시스템 및 프로퍼티 함수 ▽
     #region
     //생성된 벽돌 갯수
-    public int brickCreate;
-    //부순 벽돌 갯수 (Need Count)
-    private int brickDestroy;
-    public int BrickDestroy
-    {
-        get
-        {
-            return brickDestroy;
-        }
+    //public int brickCreate;
+    ////부순 벽돌 갯수 (Need Count)
+    //private int brickDestroy;
+    //public int BrickDestroy
+    //{
+    //    get
+    //    {
+    //        return brickDestroy;
+    //    }
 
-        set
-        {
-            BrickLeft--;
-            if (brickCreate == BrickDestroy)
-            {
-                GameOver();
-            }
-            brickDestroy = value;
-        }
-    }
-    // 남은 벽돌 갯수 (남은 = 생성 - 부순)
-    private int brickLeft;
-    public int BrickLeft
-    {
-        get
-        {
-            //Debug.Log("C : " + brickCreate + "/ D : " + BrickDestroy);
-            return brickCreate - brickDestroy;
-        }
+    //    set
+    //    {
+    //        BrickLeft--;
+    //        if (brickCreate == BrickDestroy)
+    //        {
+    //            GameOver();
+    //        }
+    //        brickDestroy = value;
+    //    }
+    //}
+    //// 남은 벽돌 갯수 (남은 = 생성 - 부순)
+    //private int brickLeft;
+    //public int BrickLeft
+    //{
+    //    get
+    //    {
+    //        //Debug.Log("C : " + brickCreate + "/ D : " + BrickDestroy);
+    //        return brickCreate - brickDestroy;
+    //    }
 
-        set { brickLeft = value; }
-    }
+    //    set 
+    //    {
+    //        brickLeft = brickCreate - brickDestroy;
+
+    //        if (brickLeft == 0) GameClear();
+    //    }
+    //}
 
     //활동중인 공 갯수 (0이 되면 게임 오버)
+
+    private int brick;
+    public int Brick
+    {
+        get
+        {
+            return brick;
+        }
+        set
+        {
+            brick = value;
+        }
+    }
+
     private int ballCount;
     public int BallCount
     {
@@ -63,15 +82,13 @@ public class GameManager : Singleton<GameManager>
 
         set
         {
-            if (ballCount < 1)
-            {
-                GameClear();
-            }
+            if (ballCount < 1) GameOver();
+
             ballCount = value;
         }
     }
 
-    private int stageLevel;
+    private int stageLevel = -1;
     public int StageLevel
     {
         get
@@ -97,11 +114,15 @@ public class GameManager : Singleton<GameManager>
     
     public void BrickTouch()
     {
-        brickDestroy++;
+        brick--;
+
+        if (brick == 0) GameClear();
     }
 
     public void GameClear()
     {
+        Debug.Log("Game Clear!");
+
         Time.timeScale = 0;
         UIManager.Instance.optionBtn.SetActive(false);
         UIManager.Instance.gameOverWindow.SetActive(true);
@@ -135,7 +156,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Time.timeScale != 1.0f) Time.timeScale = 1.0f;
 
-        if (stageLevel != 0)
+        if (stageLevel > 0)
         {
             StageInit();
             UIManager.Instance.ViewLeft();
@@ -173,21 +194,19 @@ public class GameManager : Singleton<GameManager>
 
     private void StageInit()
     {
-        brickDestroy = 0;
-
         switch (stageLevel)
         {
             case 1:
-                brickCreate = 45;
+                brick = 45;
                 break;
             case 2:
-                brickCreate = 98;
+                brick = 98;
                 break;
             case 3:
-                brickCreate = 87;
+                brick = 87;
                 break;
             case 4:
-                brickCreate = 74;
+                brick = 74;
                 break;
             default:
                 return;
